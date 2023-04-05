@@ -5,7 +5,8 @@
 <div layout:fragment="contentOfSite">
     <div class="row mt-5">
         <div class="col-12">
-            <form th:if="${tovar}!=null">
+            <form th:if="${tovar}!=null" th:action="@{'/saveitem'}" method="post">
+                <input type="hidden" name="id" th:value="${tovar.id}">
                 <div class="mt-3">
                     <label>Name</label>
                     <input type="text" name="item_name" class="form-control mt-3" th:value="${tovar.name}">
@@ -17,6 +18,13 @@
                 <div class="mt-3">
                     <label>Amount</label>
                     <input type="number" name="item_amount" class="form-control mt-3" th:value="${tovar.amount}">
+                </div>
+                <div class="mt-3">
+                    <label th:text="#{label.country}"></label>
+                    <select class="form-control mt-3" name="country_id">
+                        <option th:each="cnt: ${strany}" th:value="${cnt.id}" th:text="${cnt.name + ' / ' + cnt.code}" th:selected="${cnt.id==tovar.country.id}">
+                        </option>
+                    </select>
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-success">SAVE ITEM</button>

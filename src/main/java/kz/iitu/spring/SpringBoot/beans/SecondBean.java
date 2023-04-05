@@ -11,13 +11,12 @@ public class SecondBean {
     private int age;
 
     public SecondBean(String name, int age) {
-        System.out.println("PARAM OF SECOND");
         this.name = name;
         this.age = age;
     }
 
     public SecondBean() {
-        System.out.println("DEFAULT SECOND");
+
     }
 
     public String getName() {

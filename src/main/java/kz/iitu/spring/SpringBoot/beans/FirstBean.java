@@ -12,11 +12,10 @@ public class FirstBean {
     private String name;
 
     public FirstBean(){
-        System.out.println("USING DEFAULT CONSTRUCTOR");
+
     }
 
     public FirstBean(String name){
-        System.out.println("USING PARAMETRIZED CONSTRUCTOR");
         this.name=name;
     }
 

@@ -19,6 +19,13 @@
                         <input type="number" name="item_amount" class="form-control mt-3">
                     </div>
                     <div class="mt-3">
+                        <label th:text="#{label.country}"></label>
+                        <select class="form-control mt-3" name="country_id">
+                            <option th:each="cnt: ${strany}" th:value="${cnt.id}" th:text="${cnt.name + ' / ' + cnt.code}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
                         <button class="btn btn-success" th:text="#{label.addItem}"></button>
                     </div>
                 </form>
@@ -33,6 +40,7 @@
                         <td th:text="#{label.name}"></td>
                         <td th:text="#{label.price}"></td>
                         <td th:text="#{label.amount}"></td>
+                        <td th:text="#{label.country}"></td>
                         <td width="10%" th:text="#{label.details}"></td>
                     </tr>
                     </thead>
@@ -42,6 +50,7 @@
                         <td th:text="${tov.name}"></td>
                         <td th:text="${tov.price}"></td>
                         <td th:text="${tov.amount}"></td>
+                        <td th:text="${tov.country.name + ' / ' + tov.country.code}"></td>
                         <td>
                             <a th:href="@{'/details/'+${tov.id}}" class="btn btn-primary btn-sm" th:text="#{label.details}">DETAILS</a>
                         </td>

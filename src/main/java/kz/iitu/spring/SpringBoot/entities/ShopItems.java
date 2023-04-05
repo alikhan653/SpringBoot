@@ -27,4 +27,6 @@ public class ShopItems {
     @Column(name = "amount")
     private int amount;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Countries country;
 }
